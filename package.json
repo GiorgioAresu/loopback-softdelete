@@ -1,11 +1,11 @@
 {
-  "name": "loopback-softdelete",
+  "name": "loopback-soft-delete",
   "version": "1.0.1",
   "description": "SoftDelete mixin for Loopback.",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/GuruSolution/loopback-softdelete.git"
+    "url": "git+https://github.com/luanxuechao/loopback-softdelete.git"
   },
   "keywords": [
     "loopback",
@@ -15,12 +15,12 @@
     "soft",
     "delete"
   ],
-  "author": "Arturs Krapans",
+  "author": "luanxuechao",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/GuruSolution/loopback-softdelete/issues"
+    "url": "https://github.com/luanxuechao/loopback-softdelete/issues"
   },
-  "homepage": "https://github.com/GuruSolution/loopback-softdelete#readme",
+  "homepage": "https://github.com/luanxuechao/loopback-softdelete#readme",
   "devDependencies": {
     "loopback": "^3.2.0",
     "loopback-boot": "^2.23.0",

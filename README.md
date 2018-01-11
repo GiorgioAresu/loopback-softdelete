@@ -3,7 +3,7 @@
 Loopback SoftDelete
 =============
 
-This module is designed for the [Strongloop Loopback](https://github.com/strongloop/loopback) framework. It allows entities of any Model to be "soft deleted" by adding `deletedAt` and `isDeleted` attributes. Queries following the standard format will not return these entities; they can only be accessed by adding `{ isDeleted: true }` to  qutheery object (at the same level as `where`, `include` etc).
+This module is designed for the [Strongloop Loopback](https://github.com/strongloop/loopback) framework. It allows entities of any Model to be "soft deleted" by adding `deletedAt` and `isDeleted` attributes. Queries following the standard format will not return these entities; they can only be accessed by adding `{ isDeleted: true }` to  qutheery object (at the same level as `where`, `include` etc).(powered by https://github.com/GuruSolution/loopback-softdelete).
 
 Install
 -------
