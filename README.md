@@ -1,4 +1,3 @@
-[![NPM](https://nodei.co/npm/loopback-softdelete.png?compact=true)](https://npmjs.org/package/loopback-softdelete)
 
 Loopback SoftDelete
 =============
@@ -10,13 +9,9 @@ Install
 
 ##### NPM
 ```bash
-  npm install --save loopback-softdelete
+  npm install --save loopback-softdelete-include
 ```
 
-##### YARN
-```bash
-  yarn add loopback-softdelete
-```
 
 Configure
 ----------
