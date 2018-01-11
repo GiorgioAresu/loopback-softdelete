@@ -72,7 +72,6 @@ To use with your Models add the `mixins` attribute to the definition object of y
         );
         Book.belongsTo(Author, {foreignKey: 'authorId'});
         Author.hasMany(Book,{as: 'books', foreignKey: 'authorId'});
-        Author.find({include:'books'})
         Author.find({where:{id:authorId},include:'books'}, {include:['Book']},function (err, authors) {
         });
 ```
