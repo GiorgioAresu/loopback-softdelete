@@ -29,7 +29,7 @@ Add the `mixins` property to your `server/model-config.json`:
     ],
     "mixins": [
       "loopback/common/mixins",
-      "../node_modules/loopback-softdelete",
+      "../node_modules/loopback-softdelete-include",
       "../common/mixins"
     ]
   }
