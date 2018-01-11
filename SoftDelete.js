@@ -50,6 +50,9 @@ module.exports = function (Model, options) {
      * if there is already in query isDeleted property, then we do not modify query
      */
     Model.observe('access', function logQuery(ctx, next) {
+        if(ctx.options.include && ctx.options.include.length > 0 && ctx.options.include.indexOf(ctx.Model.modelName)> -1){
+             return next();
+        }
         if (!ctx.query.isDeleted && (!ctx.query.where || ctx.query.where && JSON.stringify(ctx.query.where).indexOf('isDeleted') == -1)) {
             if (!ctx.query.where) ctx.query.where = {};
             ctx.query.where.isDeleted = false;

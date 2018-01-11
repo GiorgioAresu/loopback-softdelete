@@ -84,6 +84,59 @@ test('loopback soft delete', function (tap) {
 
     });
 
+    tap.test('find  isDeleted one  when  include', function (t) {
+
+        var Book = dataSource.createModel('Book',
+            {name: String, type: String},
+            {mixins: {SoftDelete: true}}
+        );
+        var Author =dataSource.createModel('Author',
+        {name: String},
+        {mixins: {SoftDelete: true}}
+        );
+        Book.belongsTo(Author, {foreignKey: 'authorId'});
+        Author.hasMany(Book,{as: 'books', foreignKey: 'authorId'});
+        let authorId = '';
+        let bookId ='';
+        t.test(' author should be with isDeleted false', function (tt) {
+            Author.create({name: 'author1'}, function (err, author) {
+                authorId = author.id;
+                tt.equal(false, author.isDeleted);
+                tt.end();
+            });
+        });
+
+        t.test('should be with isDeleted false', function (tt) {
+            Book.create({name: 'book 1', type: 'fiction',authorId: authorId}, function (err, book) {
+                tt.equal(false, book.isDeleted);
+                tt.end();
+            });
+        });
+
+        t.test('should be with isDeleted true', function (tt) {
+            Book.create({name: 'book 1', type: 'fiction', authorId: authorId}, function (err, book) {
+                bookId = book.id;
+                Book.destroyById(bookId, function () {
+                    Book.find({ where: {id: bookId, isDeleted: true} }, function (err, b) {
+                        b = b.shift();
+                        tt.equal(true, b.isDeleted);
+                        tt.end();
+                    });
+                });
+            });
+        });
+        t.test('should be with isDeleted true can include find ', function (tt) {
+            Author.find({where:{id:authorId},include:'books'}, {include:['Book']},function (err, authors) {
+                tt.equal(2, authors[0].books().length);
+                tt.end();
+            });
+        });
+
+        t.end();
+
+    });
+
+
     tap.end();
 
 });

@@ -60,6 +60,23 @@ To use with your Models add the `mixins` attribute to the definition object of y
   },
 ```
 
+##### include find
+```javascript
+        var Book = dataSource.createModel('Book',
+            {name: String, type: String},
+            {mixins: {SoftDelete: true}}
+        );
+        var Author =dataSource.createModel('Author',
+        {name: String},
+        {mixins: {SoftDelete: true}}
+        );
+        Book.belongsTo(Author, {foreignKey: 'authorId'});
+        Author.hasMany(Book,{as: 'books', foreignKey: 'authorId'});
+        Author.find({include:'books'})
+        Author.find({where:{id:authorId},include:'books'}, {include:['Book']},function (err, authors) {
+        });
+```
+
 Retrieving deleted entities
 ---------------------------
 
