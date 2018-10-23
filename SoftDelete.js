@@ -40,7 +40,7 @@ module.exports = function (Model, options) {
      * and instead of deleting object, sets properties deletedAt and isDeleted.
      */
     Model.observe('before delete', function (ctx, next) {
-        Model.updateAll(ctx.where, {deletedAt: new Date(), isDeleted: true}).then(function (result) {
+        Model.updateAll(ctx.where, {deletedAt: new Date(), isDeleted: true}, ctx.options).then(function (result) {
             next(null);
         });
     });
