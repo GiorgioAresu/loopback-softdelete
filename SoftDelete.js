@@ -53,9 +53,9 @@ module.exports = function (Model, options) {
         if(ctx.options.include && ctx.options.include.length > 0 && ctx.options.include.indexOf(ctx.Model.modelName)> -1){
              return next();
         }
-        if (!ctx.query.isDeleted && (!ctx.query.where || ctx.query.where && JSON.stringify(ctx.query.where).indexOf('isDeleted') == -1)) {
+        if (!ctx.query.hasOwnProperty('isDeleted') && (!ctx.query.where || ctx.query.where && JSON.stringify(ctx.query.where).indexOf('isDeleted') == -1)) {
             if (!ctx.query.where) ctx.query.where = {};
-            ctx.query.where.isDeleted = false;
+            ctx.query.where.isDeleted = {neq: true};
         }
         next();
     });
