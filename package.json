@@ -1,11 +1,11 @@
 {
   "name": "loopback-softdelete-include",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "SoftDelete mixin for Loopback.",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/luanxuechao/loopback-softdelete.git"
+    "url": "git+https://github.com/mike-zipit/loopback-softdelete.git"
   },
   "keywords": [
     "loopback",
@@ -18,9 +18,9 @@
   "author": "luanxuechao",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/luanxuechao/loopback-softdelete/issues"
+    "url": "https://github.com/mike-zipit/loopback-softdelete/issues"
   },
-  "homepage": "https://github.com/luanxuechao/loopback-softdelete#readme",
+  "homepage": "https://github.com/mike-zipit/loopback-softdelete#readme",
   "devDependencies": {
     "loopback": "^3.2.0",
     "loopback-boot": "^2.23.0",
